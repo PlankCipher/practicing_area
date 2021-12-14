@@ -1,6 +1,8 @@
 import { ListNode, DoublyLinkedList } from './DoublyLinkedList';
 
-const printNode = (node: ListNode) => {
+const list = new DoublyLinkedList<number>();
+
+const printNode = (node: ListNode<number>) => {
   if (node) {
     console.log(
       `${node.prev === null ? 'null' : node.prev.value} <- ${node.value} -> ${
@@ -12,7 +14,7 @@ const printNode = (node: ListNode) => {
   }
 };
 
-const printList = (list: DoublyLinkedList) => {
+const printList = (list: DoublyLinkedList<number>) => {
   let curr = list.head;
   while (curr !== null) {
     printNode(curr);
@@ -20,14 +22,12 @@ const printList = (list: DoublyLinkedList) => {
   }
 };
 
-const list = new DoublyLinkedList();
-
 console.log(`Upon initializing the list, it's head is: ${list.head}`);
 console.log('----------------------------------------\n');
 
 console.log('Inserting nodes with values 1, 2, 3, 4, and 5 into the list');
 for (let i = 1; i <= 5; i++) {
-  const node: ListNode = {
+  const node: ListNode<number> = {
     prev: null,
     next: null,
     value: i,

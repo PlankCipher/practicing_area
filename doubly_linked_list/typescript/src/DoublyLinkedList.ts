@@ -1,20 +1,19 @@
-type ListNodeValue = any;
-export type ListNode = ListNodeInterface | null;
+export type ListNode<T> = ListNodeInterface<T> | null;
 
-interface ListNodeInterface {
-  prev: ListNode;
-  next: ListNode;
-  value: ListNodeValue;
+interface ListNodeInterface<T> {
+  prev: ListNode<T>;
+  next: ListNode<T>;
+  value: T;
 }
 
-export class DoublyLinkedList {
-  public head: ListNode;
+export class DoublyLinkedList<T> {
+  public head: ListNode<T>;
 
   constructor() {
     this.head = null;
   }
 
-  search(value: ListNodeValue): ListNode {
+  search(value: T): ListNode<T> {
     let curr = this.head;
     while (curr !== null && curr.value !== value) {
       curr = curr.next;
@@ -22,7 +21,7 @@ export class DoublyLinkedList {
     return curr;
   }
 
-  insert(node: ListNodeInterface) {
+  insert(node: ListNodeInterface<T>) {
     node.prev = null;
     if (this.head !== null) {
       this.head.prev = node;
@@ -31,7 +30,7 @@ export class DoublyLinkedList {
     this.head = node;
   }
 
-  deleteByValue(value: ListNodeValue) {
+  deleteByValue(value: T) {
     const node = this.search(value);
     if (node !== null) {
       if (node.prev !== null) {
