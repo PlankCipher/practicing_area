@@ -16,19 +16,19 @@ end
 puts "----------------------------------------\n\n"
 
 puts "The current list:"
-Utils.print_list(list)
+print_list(list)
 puts "----------------------------------------\n\n"
 
 puts "list.search(5) returns:"
-Utils.print_node(list.search(5));
+print_node(list.search(5));
 puts
 
 puts "list.search(3) returns:"
-Utils.print_node(list.search(3));
+print_node(list.search(3));
 puts
 
 puts "list.search(99) returns:"
-Utils.print_node(list.search(99));
+print_node(list.search(99));
 puts "----------------------------------------\n\n"
 
 puts "After deleting node with value 5:"
